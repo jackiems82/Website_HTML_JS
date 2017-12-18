@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Longboards in deinem Design - DeinBRETT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <noscript>
+      <br>
+      <p>Vielen Dank für dein Interesse ans unseren Inhalten. Leider unterstützt dein Browser kein JavaScript oder es ist deaktiviert. Jedoch kannst du gern über unsere 
+        <a href='https://www.facebook.com/deinbrett/' 
+          data-analytics-category='link' data-analytics-action='navigate' 
+          data-analytics-label='Index-Facebooklink'>Facebookseite</a> mit uns in Kontakt treten.
+      </p>
+      <p>Wir freuen uns von dir zu hören.</p>
+      <br>
+      <p>Thank you for your interest in our content. Sadly your browser does not support JavaScript or it might be deactivated. Nevertheless you can contact us via our 
+        <a href='https://www.facebook.com/deinbrett/' 
+          data-analytics-category='link' data-analytics-action='navigate' 
+          data-analytics-label='Index-Facebooklink'>Facebook page.</a>
+      </p>
+      <p>We look forward to get in contact with you.</p>      
+    </noscript>
+    <link rel="stylesheet" href="src/index.css">
+  </head>
+
+  <body aurelia-app="main">
+    <div class="absolute-center">
+      <img id="spinner" src="images/wheel.svg" alt="Loading">
+      
+      <div class="font_preload" style="opacity: 0">
+        <span style="font-family: 'Datalegreya', Arial, sans-serif;"></span>
+      </div>
+    </div>
+    
+    <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+            
+    <script type="text/javascript">
+      var gaProperty = 'UA-99136946-1';
+      var disableStr = 'ga-disable-' + gaProperty;
+      if (document.cookie.indexOf(disableStr + '=true') > -1) {
+        window[disableStr] = true;
+      }
+      function gaOptout() {
+        console.log("Setting opt-out cookie.");
+        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/';
+        window[disableStr] = true;
+      }
+    </script>
+  </body>
+</html>

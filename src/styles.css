@@ -1,0 +1,324 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+html {
+  position: relative;
+  min-height: 100%;
+  /*always shows the scrollbar so that it prevents jumping of content when no scrollbar would be shown*/
+  overflow-y: scroll;
+}
+body {
+  background-color: #f3f3f3;
+}
+.clickable{  
+    position: relative;  
+    cursor: pointer; 
+    cursor: hand; 
+    z-index: 1;
+}
+
+/* wrap long link text */
+.long-link{
+    white-space: pre-wrap; /* css-3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+#wrap {
+   min-height:100%;
+   position:relative;
+}
+
+#body {
+   padding:10px;
+   padding-bottom:100px;   /* Height of the footer */
+   margin-top:30px;
+}
+/* This is needed to move the links in front of the footer an make them clickable. */
+#body a {
+    position: relative;
+    z-index: 1;
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:120px;   /* Height of the footer */
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: bottom;
+   background-image:url("images/footer3.png");
+}
+
+
+
+/****FOOTER****/
+
+#footer ul {
+    position: absolute;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    margin-bottom:0;
+    bottom:0;
+}
+#footer li {
+    padding: 0;
+}
+#footer,
+#footer a {
+    color: #f3f3f3;
+}
+#footer a {
+    padding: 15px 5px;
+}
+
+
+/*** Flexbox ***/
+/*.flex-container {
+  display: -webkit-flex; /* Safari *
+  display: flex;
+  -webkit-justify-content: space-between; /* Safari *
+  justify-content:         space-between;
+}*/
+
+
+/****NAVIGATON*******/
+.navbar-brand {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.navbar-brand img {
+    height: 30px;
+}
+.logo img {
+    height: 44px;
+}
+
+.nav-pills-lg{
+    padding: 10px 0;
+    font-size: 18px;
+    line-height: 1.3333333;
+    padding-top: 20px;
+}
+.nav-pills-lg li{
+    margin-right: 5px;
+}
+.nav-pills-lg li a{
+    padding: 10px 15px;
+}
+.nav-pills-lg > li.active > a,
+.nav-pills-lg > li.active > a:focus,
+.nav-pills-lg > li.active > a:hover,
+.nav-pills-lg > li > a:hover {
+    border-bottom: 4px solid #515151;
+    background-color: #f3f3f3;
+    padding-bottom: 6px;
+    text-decoration: none;
+}
+.nav-pills-lg > li > a,
+.nav-pills-lg > li > a:focus {
+    color: #337ab7;
+    border-radius: 0px;
+    background-color: #f3f3f3;
+    text-decoration: none;
+}
+
+/*** Home page image ***/
+ .home-image{
+    overflow: visible;
+    height: 200px;
+    width: 100%;
+    margin-top:50px;
+    background:url("images/home_768.jpg") no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid #515151;
+}
+.home-heading {
+    font-family: Datalegreya;
+    font-size: 5em;
+    margin-top: -10px;
+    margin-left: -8px;
+}
+/*.home-image img {
+    height: auto;
+    max-width: 100%;
+    background:url("images/home_768.jpg") no-repeat;
+}*/
+
+
+
+/***PROJECTS page***/
+.projects {
+    margin-bottom: 30px;
+}
+.projects h3 {
+    margin-top: 25px;
+}
+.swiper-container {
+    /* height width ratio = 1.5 */
+    width: 290px;
+    height: 290px;
+    margin-top: 15px;
+}
+/*how to make it full screen zoom?*/
+.swiper-zoom-container {
+    height: 700px;
+    width: auto;
+    overflow: visible;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #f3f3f3;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;   /* remove to have it same in FF*/
+    align-items: center;           /* remove to have it same in FF*/
+    overflow: hidden;
+    /*border: 1px solid #515151;*/
+}
+.swiper-button-next{background-image: url("images/swiper-arrow.png");}
+
+.swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.5;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+}
+
+
+/* ABout page */
+
+.about-content {
+    margin-bottom: 20px;
+}
+
+
+
+/*****MEDIA QUERIES********/
+
+/* For width 480px and larger: */
+@media only screen and (min-width: 480px) {
+    #body{
+        padding-bottom:180px;
+    }
+    #footer{
+        height: 200px;
+    }
+    .home-image {
+        height: 300px;
+        background:url("images/home_992.jpg") no-repeat;
+        background-size: cover;
+    }
+    .swiper-container {
+        width: 320px;
+        height: 320px;
+    }
+    /*.footer-content{
+        height: 150px;
+        width: 100%;
+    }*/
+}
+/* For width 768px and larger: */
+@media only screen and (min-width: 768px) {
+    #body{
+        padding-bottom:200px;
+    }
+    #footer{
+        height: 250px;
+    }
+    .home-heading {     
+        font-size: 6em;
+    }
+    .home-image {
+        height: 400px;
+        margin-top:-85px;
+        background-size: cover;
+    }
+    .swiper-container {
+        margin-top: 30px;
+        width: 250px;
+        height: 250px;
+    }
+    /* content general */
+    .content {
+        margin-top: 45px;
+    }
+}
+/* For width 992px and larger: */
+@media only screen and (min-width: 992px) {
+    #body{
+        padding-bottom:150px;
+    }
+    #footer{
+        height: 300px;
+    }
+    .home-image {
+        height: 450px;
+        background:url("images/home_1200.jpg") no-repeat;
+        background-size: cover;
+    }
+
+    /*Push logo and navigation down on bigger screens*/
+    .navbar-brand,
+    .main-navigation ul {
+        margin-top:20px;
+    }
+    .projects {
+        margin-bottom: 60px;
+    }
+    .swiper-container {   
+        width: 370px;
+        height: 370px;
+    }
+}
+/* For width 1200px and larger: */
+@media only screen and (min-width: 1200px) {
+    #body{
+        padding-bottom:200px;
+    }
+    #footer{
+        height: 500px;
+    }
+    .home-image {
+        height: 500px;
+        background:url("images/home_1920.jpg") no-repeat;
+        background-size: cover;
+    }
+    .swiper-container {   
+        width: 400px;
+        height: 400px;
+    }
+}
+/* For width 1900px and larger: */
+@media only screen and (min-width: 1900px) {
+    #body{
+        padding-bottom:350px;
+    }
+    #footer{
+        height: 650px;
+    }
+    .home-image {
+        height: 700px;
+        background:url("images/home.jpg") no-repeat;
+        background-size: cover;
+            
+
+    }
+}

@@ -1,0 +1,27 @@
+<template>
+    <require from="resources/elements/photoswipe-modal"></require>
+    <photoswipe-modal view-model.ref="ps"></photoswipe-modal>
+
+    <div class="container content" id="body">
+        <div class="row col-sm-12 visible-xs" t="[html]about.header"></div>
+        <div class="row">
+
+            <div class="col-sm-7 col-sm-offset-1 about-content">                
+                <div t="[html]about.content">About</div>
+            </div>
+            <div class="col-sm-4">                
+                <div class="center-block photoswipe" style="width: 230px;">
+                    <div repeat.for="image of model.mediumImages" if.bind="model.mediumImages.length > 0">
+                        <img src.bind="image.url" class="clickable" 
+                         click.trigger="clickImage($index)" />
+                    </div>                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+    
+</template>
