@@ -20,6 +20,55 @@ body {
     z-index: 1;
 }
 
+
+/* Index  */
+.absolute-center {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #333;
+    text-align: center;
+    margin: auto;
+    height: 200px;
+    width: 150px;
+    position: absolute;
+    overflow: visible;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#spinner {
+    width: 150px;
+    animation-delay: 0.1s;
+    animation-play-state: running;
+    animation-name: spinner;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner{
+    0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55,0.055,0.675,0.19);
+    }
+    50% {
+        -webkit-transform: rotate(900deg);
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+    }
+    100% {
+        -webkit-transform: rotate(1800deg);
+        transform: rotate(1800deg);
+    }
+}
+
+@font-face {
+    font-family: Datalegreya;
+    src: url("../assets/fonts/Datalegreya-Thin.otf") format("opentype");
+    font-weight: bolder;
+}
+
+
 /* wrap long link text */
 .long-link{
     white-space: pre-wrap; /* css-3 */    
@@ -52,7 +101,7 @@ body {
    background-repeat: no-repeat;
    background-size: 100%;
    background-position: bottom;
-   background-image:url("images/footer3.png");
+   background-image:url("../images/footer3.png");
 }
 
 
@@ -134,7 +183,7 @@ body {
     height: 200px;
     width: 100%;
     margin-top:50px;
-    background:url("images/home_768.jpg") no-repeat;
+    background:url("../images/home_768.jpg") no-repeat;
     background-size: cover;
     border-bottom: 1px solid #515151;
 }
@@ -191,7 +240,7 @@ body {
     overflow: hidden;
     /*border: 1px solid #515151;*/
 }
-.swiper-button-next{background-image: url("images/swiper-arrow.png");}
+.swiper-button-next{background-image: url("../images/swiper-arrow.png");}
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -223,7 +272,7 @@ body {
     }
     .home-image {
         height: 300px;
-        background:url("images/home_992.jpg") no-repeat;
+        background:url("../images/home_992.jpg") no-repeat;
         background-size: cover;
     }
     .swiper-container {
@@ -271,7 +320,7 @@ body {
     }
     .home-image {
         height: 450px;
-        background:url("images/home_1200.jpg") no-repeat;
+        background:url("../images/home_1200.jpg") no-repeat;
         background-size: cover;
     }
 
@@ -298,7 +347,7 @@ body {
     }
     .home-image {
         height: 500px;
-        background:url("images/home_1920.jpg") no-repeat;
+        background:url("../images/home_1920.jpg") no-repeat;
         background-size: cover;
     }
     .swiper-container {   
@@ -316,7 +365,7 @@ body {
     }
     .home-image {
         height: 700px;
-        background:url("images/home.jpg") no-repeat;
+        background:url("../images/home.jpg") no-repeat;
         background-size: cover;
             
 
