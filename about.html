@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
-    <title>Impressum | Longboards nach deinem Geschmack - DeinBRETT</title>
+    <title>Info | Longboards nach deinem Geschmack - DeinBRETT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">    
@@ -94,7 +94,7 @@
             </div>
             <div class="row">
 
-                <div class="col-sm-7 col-sm-offset-1 about-content">
+                <div class="col-sm-5 col-sm-offset-2 about-content">
                     <p>DeinBRETT ist eine kleine Longboardschmiede aus dem Herzen Rostocks. Der Fokus liegt auf dem Bau individueller
                         Einzelstücke. Dabei wird im Rahmen der technischen Realisierbarkeit auf jeden Kundenwunsch eingegangen
                         und dieser gemeinsam umgesetzt.</p><br /><br />
@@ -103,23 +103,15 @@
                             data-analytics-action='navigate' data-analytics-label='Facebooklink'>Facebookseite</a> und wir klären
                         Preis und Details.</p>
                 </div>
-                <div class="col-sm-4">
-                    <div class="center-block photoswipe" style="width: 230px;">
-                        <div>
-                            <img src="images/Stadthafen_230.jpg" class="clickable" onClick="openPS()" />
-                        </div>
+                <div class="col-sm-3">
+                    <div class="my-gallery center-block" itemscope itemtype="http://schema.org/ImageGallery" style="width: 230px;">
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="images/stadthafen_size_805x1200.jpg" itemprop="contentUrl" data-size="805x1200">
+                                <img src="images/Stadthafen_201.jpg" itemprop="thumbnail" alt="Handstand auf einem Longboard am Rostocker Stadthafen" />
+                            </a>
+                            <figcaption itemprop="caption description">Handstand auf einem Longboard am Rostocker Stadthafen</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="my-gallery center-block" itemscope itemtype="http://schema.org/ImageGallery">
-
-                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                        <a href="images/stadthafen_size_805x1200.jpg" itemprop="contentUrl" data-size="805x1200">
-                            <img src="images/Stadthafen_230.jpg" itemprop="thumbnail" alt="Handstand auf einem Longboard am Rostocker Stadthafen" />
-                        </a>
-                        <!-- <figcaption itemprop="caption description">Handstand auf einem Longboard am Rostocker Stadthafen</figcaption> -->
-                    </figure>
-
                 </div>
 
             </div>
@@ -207,7 +199,7 @@
 
     </div>
 
-
+    <!--  Photoswipe JS and CSS -->
     <script>
         var initPhotoSwipeFromDOM = function(gallerySelector) {
 
@@ -360,7 +352,12 @@
                             rect = thumbnail.getBoundingClientRect(); 
 
                         return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-                    }
+                    },
+                    shareButtons: [
+                        {id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
+                        {id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
+                        {id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'},
+                    ]
 
                 };
 
@@ -417,55 +414,6 @@
     </script>
 
 
-
-
-
-
-
-
-
-    <script>
-        function openPS() {
-            console.log("Test");
-            var pswpElement = document.querySelectorAll('.pswp')[0];
-
-            // build items array
-            var items = [
-                {
-                    src: 'images/stadthafen_size_805x1200.jpg',
-                    w: 805,
-                    h: 1200
-                }
-            ];
-
-            // define options (if needed)
-            var options = {
-                // optionName: 'option value'
-                // for example:
-                index: 0 // start at first slide
-            };
-
-            // Initializes and opens PhotoSwipe
-            var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-            gallery.init();
-        }
-
-    </script>
-
-    <script type="text/javascript">
-        var gaProperty = 'UA-99136946-1';
-        var disableStr = 'ga-disable-' + gaProperty;
-        if (document.cookie.indexOf(disableStr + '=true') > -1) {
-            window[disableStr] = true;
-        }
-        function gaOptout() {
-            console.log("Setting opt-out cookie.");
-            document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/';
-            window[disableStr] = true;
-        }
-    </script>
-
-
     <!-- Core CSS file -->
     <link rel="stylesheet" href="js/photoswipe/photoswipe.css"> 
 
@@ -481,6 +429,19 @@
     <!-- UI JS file -->
     <script src="js/photoswipe/photoswipe-ui-default.min.js"></script> 
 
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var gaProperty = 'UA-99136946-1';
+        var disableStr = 'ga-disable-' + gaProperty;
+        if (document.cookie.indexOf(disableStr + '=true') > -1) {
+            window[disableStr] = true;
+        }
+        function gaOptout() {
+            console.log("Setting opt-out cookie.");
+            document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/';
+            window[disableStr] = true;
+        }
+    </script>
 
 </body>
 

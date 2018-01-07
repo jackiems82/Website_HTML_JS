@@ -208,56 +208,23 @@ body {
 .projects h3 {
     margin-top: 25px;
 }
-.swiper-container {
-    /* height width ratio = 1.5 */
-    width: 290px;
-    height: 290px;
+.img-gallery {
     margin-top: 15px;
-}
-/*how to make it full screen zoom?*/
-.swiper-zoom-container {
-    height: 700px;
-    width: auto;
-    overflow: visible;
-}
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #f3f3f3;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;   /* remove to have it same in FF*/
-    align-items: center;           /* remove to have it same in FF*/
-    overflow: hidden;
-    /*border: 1px solid #515151;*/
+    flex-wrap: wrap;
 }
-.swiper-button-next{background-image: url("../images/swiper-arrow.png");}
-
-.swiper-button-next,
-.swiper-button-prev {
-    opacity: 0.5;
+.img-gallery figure{
+    margin: 0 10px 10px 0;
 }
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    opacity: 1;
+figcaption {
+    display:none;
 }
-
 
 /* ABout page */
 
 .about-content {
     margin-bottom: 20px;
 }
-
 
 
 /*****MEDIA QUERIES********/
@@ -274,10 +241,6 @@ body {
         height: 300px;
         background:url("../images/home_992.jpg") no-repeat;
         background-size: cover;
-    }
-    .swiper-container {
-        width: 320px;
-        height: 320px;
     }
     /*.footer-content{
         height: 150px;
@@ -299,11 +262,6 @@ body {
         height: 400px;
         margin-top:-85px;
         background-size: cover;
-    }
-    .swiper-container {
-        margin-top: 30px;
-        width: 250px;
-        height: 250px;
     }
     /* content general */
     .content {
@@ -332,10 +290,6 @@ body {
     .projects {
         margin-bottom: 60px;
     }
-    .swiper-container {   
-        width: 370px;
-        height: 370px;
-    }
 }
 /* For width 1200px and larger: */
 @media only screen and (min-width: 1200px) {
@@ -350,10 +304,6 @@ body {
         background:url("../images/home_1920.jpg") no-repeat;
         background-size: cover;
     }
-    .swiper-container {   
-        width: 400px;
-        height: 400px;
-    }
 }
 /* For width 1900px and larger: */
 @media only screen and (min-width: 1900px) {
@@ -367,7 +317,5 @@ body {
         height: 700px;
         background:url("../images/home.jpg") no-repeat;
         background-size: cover;
-            
-
     }
 }
