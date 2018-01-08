@@ -606,6 +606,7 @@
 
             // parse picture index and gallery index from URL (#&pid=1&gid=2)
             var photoswipeParseHash = function () {
+                debugger;
                 var hash = window.location.hash.substring(1),
                     params = {};
 
@@ -705,6 +706,7 @@
 
             // Parse URL and open gallery if it contains #&pid=3&gid=1
             var hashData = photoswipeParseHash();
+            debugger;
             if (hashData.pid && hashData.gid) {
                 openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
             }
