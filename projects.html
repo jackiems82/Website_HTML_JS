@@ -501,6 +501,23 @@
     </div>
 
     <!--  Photoswipe JS and CSS -->
+
+    <!-- Core CSS file -->
+    <link rel="stylesheet" href="js/photoswipe/photoswipe.css">
+
+    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+        In the folder of skin CSS file there are also:
+        - .png and .svg icons sprite, 
+        - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="js/photoswipe/default-skin/default-skin.css">
+
+    <!-- Core JS file -->
+    <script src="js/photoswipe/photoswipe.min.js"></script>
+
+    <!-- UI JS file -->
+    <script src="js/photoswipe/photoswipe-ui-default.min.js"></script>
+
+    <!-- Photoswipe image loading -->
     <script>
         var initPhotoSwipeFromDOM = function (gallerySelector) {
 
@@ -606,7 +623,6 @@
 
             // parse picture index and gallery index from URL (#&pid=1&gid=2)
             var photoswipeParseHash = function () {
-                debugger;
                 var hash = window.location.hash.substring(1),
                     params = {};
 
@@ -706,7 +722,6 @@
 
             // Parse URL and open gallery if it contains #&pid=3&gid=1
             var hashData = photoswipeParseHash();
-            debugger;
             if (hashData.pid && hashData.gid) {
                 openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
             }
@@ -715,23 +730,6 @@
         // execute above function
         initPhotoSwipeFromDOM('.img-gallery');
     </script>
-
-    <!-- Core CSS file -->
-    <link rel="stylesheet" href="js/photoswipe/photoswipe.css">
-
-    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
-        In the folder of skin CSS file there are also:
-        - .png and .svg icons sprite, 
-        - preloader.gif (for browsers that do not support CSS animations) -->
-    <link rel="stylesheet" href="js/photoswipe/default-skin/default-skin.css">
-
-    <!-- Core JS file -->
-    <script src="js/photoswipe/photoswipe.min.js"></script>
-
-    <!-- UI JS file -->
-    <script src="js/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
 
     <!-- Google Analytics -->
     <script type="text/javascript">
