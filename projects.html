@@ -714,8 +714,7 @@
                 var metas = document.getElementsByTagName('meta');
                 for (var i=0; i<metas.length; i++) { 
                     if (metas[i].getAttribute("property") == "og:image") {
-                        metas[i].setAttribute("content", window.location.href.substring(0, location.href.lastIndexOf("/")+1) + items[options.index].src); 
-                        continue;
+                        metas[i].setAttribute("content", window.location.href.substring(0, location.href.lastIndexOf("/")+1) + items[options.index].src);
                     } 
                 } 
 
