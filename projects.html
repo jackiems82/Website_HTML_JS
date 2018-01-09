@@ -710,6 +710,16 @@
                     options.showAnimationDuration = 0;
                 }
 
+                debugger;
+
+                // Store the clicked image url in the og:image meta tag to show it correctly when sharing
+                var metas = document.getElementsByTagName('meta');
+                for (var i=0; i<metas.length; i++) { 
+                    if (metas[i].getAttribute("property") == "og:image") {
+                        return metas[i].setAttribute("content", window.location.href.substring(0, location.href.lastIndexOf("/")+1) + items[options.index].src); 
+                    } 
+                } 
+
                 // Pass data to PhotoSwipe and initialize it
                 gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
                 gallery.init();
