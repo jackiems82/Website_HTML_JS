@@ -8,6 +8,7 @@
     <meta name="description" content="Sieh dir unsere Longboard-Projekte and und nimm sie als Inspiration für dein ganz eigenes Longboard-Design ★ DeinBrett - Deine Longboardschmiede in Rostock">
     
     <meta property="og:image" content="http://3boards-staging.azurewebsites.net/images/home_1200.jpg">
+    <meta property="og:image" content="http://3boards-staging.azurewebsites.net/images/4_4_size_844x1500.jpg">
     <meta property="og:title" content="Longboards nach deinem Geschmack - DeinBRETT">
     
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
@@ -675,7 +676,7 @@
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                     },
                     shareButtons: [
-                        { id: 'facebook', label: 'Auf Facebook teilen', url: OpenShareDialog() + 'http://3boards-staging.azurewebsites.net/projects.html#&gid=1&pid=6' },
+                        { id: 'facebook', label: 'Auf Facebook teilen', url: OpenShareDialog() + '{{image_absurl}}' },
                         { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}' },
                         { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}' },
                     ]
