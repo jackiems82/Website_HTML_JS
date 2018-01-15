@@ -518,12 +518,10 @@
     <script src="js/photoswipe/photoswipe.min.js"></script>
 
     <!-- UI JS file -->
-    <script src="js/photoswipe/photoswipe-ui-default.min.js"></script>
+    <script src="js/photoswipe/photoswipe-ui-default.js"></script>
 
     <!-- Photoswipe image loading -->
-    <script>
-        var gallery = null;
-        
+    <script>        
         var initPhotoSwipeFromDOM = function (gallerySelector) {
 
             // parse slide data (url, title, size ...) from DOM elements 
@@ -656,6 +654,7 @@
 
             var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
                 var pswpElement = document.querySelectorAll('.pswp')[0],
+                    gallery,
                     options,
                     items;
 
@@ -676,7 +675,7 @@
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                     },
                     shareButtons: [
-                        { id: 'facebook', label: 'Auf Facebook teilen', url: OpenShareDialog() + getImageAbsURLForShare() },
+                        { id: 'facebook', label: 'Auf Facebook teilen', url: OpenShareDialog() + '{{image_absurl}}' },
                         { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}' },
                         { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}' },
                     ]
@@ -711,14 +710,6 @@
                     options.showAnimationDuration = 0;
                 }
 
-                // Store the clicked image url in the og:image meta tag to show it correctly when sharing
-              //  var metas = document.getElementsByTagName('meta');
-               // for (var i=0; i<metas.length; i++) { 
-              //      if (metas[i].getAttribute("property") == "og:image") {
-              //          metas[i].setAttribute("content", window.location.href.substring(0, location.href.lastIndexOf("/")+1) + items[options.index].src);
-               //     } 
-               // } 
-
                 // Pass data to PhotoSwipe and initialize it
                 gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
                 gallery.init();
@@ -744,21 +735,7 @@
     </script>
 
     <script>
-        function getImageAbsURLForShare( /* shareButtonData */ ) {
-            var theSource =  '';
-            if (gallery) {   
-                var albumFolder = window.location.href.substring(0, location.href.lastIndexOf("/")+1);
-
-                if (typeof(gallery.currItem.src) == "undefined") {
-                    theSource = gallery.currItem.videosrc; 
-                    theSource = theSource.substr(0, theSource.lastIndexOf(".")) + ".jpg";
-                } 
-                else theSource =  gallery.currItem.src;
-
-                return (albumFolder + theSource)  || '';
-            }
-        }
-
+        
         function OpenShareDialog() {
             var redirect_url = '';
             //var FBfeed = 'https://m.facebook.com/dialog/feed?app_id=';

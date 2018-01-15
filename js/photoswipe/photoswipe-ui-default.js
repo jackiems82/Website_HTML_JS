@@ -24,6 +24,18 @@
 var PhotoSwipeUI_Default =
  function(pswp, framework) {
 
+	var mainIndexPageURL = "";
+	var albumFolder =  "";
+	
+	mainIndexPageURL = location.href;
+	var lastQM = mainIndexPageURL.lastIndexOf('?');
+	if (lastQM > 0) { mainIndexPageURL = mainIndexPageURL.slice(0,lastQM) };
+	lastQM = mainIndexPageURL.lastIndexOf('#');
+	if (lastQM > 0) { mainIndexPageURL = mainIndexPageURL.slice(0,lastQM) };
+	lastQM = mainIndexPageURL.lastIndexOf('/');
+	albumFolder = mainIndexPageURL.slice(0,lastQM+1);
+
+
 	var ui = this;
 	var _overlayUIUpdated = false,
 		_controlsVisible = true,
@@ -85,6 +97,15 @@ var PhotoSwipeUI_Default =
 			],
 			getImageURLForShare: function( /* shareButtonData */ ) {
 				return pswp.currItem.src || '';
+			},
+			getImageAbsURLForShare: function( /* shareButtonData */ ) {
+				var theSource =  '';
+				if (typeof(pswp.currItem.src) == "undefined") {
+					 theSource = pswp.currItem.videosrc; 
+					 theSource = theSource.substr(0, theSource.lastIndexOf(".")) + ".jpg";
+					 } 
+					 else theSource =  pswp.currItem.src;
+				return (albumFolder + theSource)  || '';
 			},
 			getPageURLForShare: function( /* shareButtonData */ ) {
 				return window.location.href;
@@ -225,6 +246,7 @@ var PhotoSwipeUI_Default =
 				shareButtonData,
 				shareURL,
 				image_url,
+				image_absurl,
 				page_url,
 				share_text;
 
@@ -232,11 +254,13 @@ var PhotoSwipeUI_Default =
 				shareButtonData = _options.shareButtons[i];
 
 				image_url = _options.getImageURLForShare(shareButtonData);
+				image_absurl = _options.getImageAbsURLForShare(shareButtonData);
 				page_url = _options.getPageURLForShare(shareButtonData);
 				share_text = _options.getTextForShare(shareButtonData);
 
 				shareURL = shareButtonData.url.replace('{{url}}', encodeURIComponent(page_url) )
 									.replace('{{image_url}}', encodeURIComponent(image_url) )
+									.replace('{{image_absurl}}', encodeURIComponent(image_absurl) )
 									.replace('{{raw_image_url}}', image_url )
 									.replace('{{text}}', encodeURIComponent(share_text) );
 
