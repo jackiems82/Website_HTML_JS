@@ -364,7 +364,7 @@
                     shareButtons: [
                         {id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
                         {id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
-                        {id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media=http://3boards-staging.azurewebsites.net/images/home_1200.jpg&description={{text}}'},
+                        {id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_absurl}}&description={{text}}'},
                     ]
 
                 };
@@ -435,7 +435,7 @@
     <script src="js/photoswipe/photoswipe.min.js"></script> 
 
     <!-- UI JS file -->
-    <script src="js/photoswipe/photoswipe-ui-default.min.js"></script> 
+    <script src="js/photoswipe/photoswipe-ui-default.js"></script> 
 
     <!-- Google Analytics -->
     <script type="text/javascript">
