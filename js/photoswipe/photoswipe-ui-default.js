@@ -43,7 +43,21 @@ var PhotoSwipeUI_Default =
 	lastQM = mainIndexPageURL.lastIndexOf('/');
 	albumFolder = mainIndexPageURL.slice(0,lastQM+1);
 
-	getDeviceInfo();
+	var deviceAgent = navigator.userAgent.toLowerCase();
+	iOS = (deviceAgent.match(/(iphone|ipod|ipad)/)!=null);
+	Android = (deviceAgent.match(/(android)/)!=null);
+	iPhone = (deviceAgent.match(/(iphone|ipod)/)!=null);
+	iPad = (deviceAgent.match(/ipad/)!=null);
+	WindowsOS = (navigator.platform.indexOf("Win")!=-1);
+	MacOS = (navigator.platform.indexOf("Mac")!=-1);
+	LinuxOS = (navigator.platform.indexOf("Linux")!=-1);
+	PC = (WindowsOS||MacOS||LinuxOS);
+	// IE = (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0);
+	// FF = (navigator.userAgent.indexOf("Firefox")!=-1);
+	// Edge = (navigator.userAgent.indexOf("Edge")!=-1)
+	if (iPhone && iPad) iPhone = false;
+	// screenHeight = screen.height;
+	// if (screen.width < screen.height) screenHeight = screen.width;
 
 	var ui = this;
 	var _overlayUIUpdated = false,
