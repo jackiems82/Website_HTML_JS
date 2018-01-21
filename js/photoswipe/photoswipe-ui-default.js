@@ -286,9 +286,11 @@ var PhotoSwipeUI_Default =
 									.replace('{{image_absurl}}', encodeURIComponent(image_absurl) )
 									.replace('{{raw_image_url}}', image_url )
 									.replace('{{text}}', encodeURIComponent(share_text) );
-
-									debugger;	
-				if ((shareButtonData.id  == 'whatsapp') && !(iPhone||Android)) { /* whatsapp only on a phone */ }
+	
+				if ((shareButtonData.id  == 'whatsapp') && !(iPhone||Android)) { 
+					/* whatsapp only on a phone */
+					continue;
+				}
 
 				shareButtonOut += '<a href="' + shareURL + '" target="_blank" '+
 									'class="pswp__share--' + shareButtonData.id + '"' +
