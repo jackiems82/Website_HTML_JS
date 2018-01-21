@@ -26,6 +26,14 @@ var PhotoSwipeUI_Default =
 
 	var mainIndexPageURL = "";
 	var albumFolder =  "";
+	var WindowsOS = false;
+	var MacOS = false;
+	var LinuxOS = false;
+	var PC = false;
+	var iOS = false;
+	var Android = false;
+	var iPhone = false;
+	var iPad = false;
 	
 	mainIndexPageURL = location.href;
 	var lastQM = mainIndexPageURL.lastIndexOf('?');
@@ -35,6 +43,7 @@ var PhotoSwipeUI_Default =
 	lastQM = mainIndexPageURL.lastIndexOf('/');
 	albumFolder = mainIndexPageURL.slice(0,lastQM+1);
 
+	getDeviceInfo();
 
 	var ui = this;
 	var _overlayUIUpdated = false,
@@ -263,6 +272,9 @@ var PhotoSwipeUI_Default =
 									.replace('{{image_absurl}}', encodeURIComponent(image_absurl) )
 									.replace('{{raw_image_url}}', image_url )
 									.replace('{{text}}', encodeURIComponent(share_text) );
+
+									debugger;	
+				if ((shareButtonData.id  == 'whatsapp') && !(iPhone||Android)) { /* whatsapp only on a phone */ }
 
 				shareButtonOut += '<a href="' + shareURL + '" target="_blank" '+
 									'class="pswp__share--' + shareButtonData.id + '"' +
