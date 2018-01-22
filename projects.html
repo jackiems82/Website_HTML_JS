@@ -416,28 +416,32 @@
 
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href="images/1_1_size_1125x1500.jpg" itemprop="contentUrl" data-size="1125x1500">
-                                <img src="images/1_1_size_85x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" Longboard an der Hafenkante des Rostocker Stadthafens' />
+                                <img src="images/1_1_size_85x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" Longboard an der Hafenkante des Rostocker Stadthafens'
+                                     share-src="galleries/1/1" />
                             </a>
                             <figcaption itemprop="caption description"></figcaption>
                         </figure>
 
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href="images/1_3_size_1500x1125.jpg" itemprop="contentUrl" data-size="1500x1125">
-                                <img src="images/1_3_size_151x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" mit Rostocker Stadthafen als Grafik' />
+                                <img src="images/1_3_size_151x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" mit Rostocker Stadthafen als Grafik'
+                                     share-src="galleries/1/2" />
                             </a>
                             <figcaption itemprop="caption description">Unterseite mit der Hafenlinie des Rostocker Stadhafens als Grafik</figcaption>
                         </figure>
 
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href="images/1_2_size_1125x1500.jpg" itemprop="contentUrl" data-size="1125x1500">
-                                <img src="images/1_2_size_85x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" Longboard an der Hafenkante des Rostocker Stadthafens' />
+                                <img src="images/1_2_size_85x113.jpg" itemprop="thumbnail" alt='Mini Cruiser "Rostock" Longboard an der Hafenkante des Rostocker Stadthafens'
+                                     share-src="galleries/1/3" />
                             </a>
                             <figcaption itemprop="caption description"></figcaption>
                         </figure>
 
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href="images/1_4_size_1500x1125.jpg" itemprop="contentUrl" data-size="1500x1125">
-                                <img src="images/1_4_size_151x113.jpg" itemprop="thumbnail" alt="Grafik mit darüber liegender Glasfaser" />
+                                <img src="images/1_4_size_151x113.jpg" itemprop="thumbnail" alt="Grafik mit darüber liegender Glasfaser"
+                                     share-src="galleries/1/4" />
                             </a>
                             <figcaption itemprop="caption description">Nahansicht der Grafik und des darüber liegenden Glasfasergeleges</figcaption>
                         </figure>
@@ -584,6 +588,7 @@
                     // create slide object
                     item = {
                         src: linkEl.getAttribute('href'),
+                        //shareSrc: "",
                         w: parseInt(size[0], 10),
                         h: parseInt(size[1], 10)
                     };
@@ -598,6 +603,7 @@
                     if (linkEl.children.length > 0) {
                         // <img> thumbnail element, retrieving thumbnail url
                         item.msrc = linkEl.children[0].getAttribute('src');
+                        item.shareSrc = linkEl.children[0].getAttribute('share-src');
                     }
 
                     item.el = figureEl; // save link to element for getThumbBoundsFn
@@ -692,7 +698,7 @@
                     items;
 
                 items = parseThumbnailElements(galleryElement);
-
+                
                 // define options (if needed)
                 options = {
 
@@ -708,14 +714,14 @@
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                     },
                     shareButtons: [
-                        { id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' },
-                        { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}&hashtags=Longboard' },
-                        { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_absurl}}&description={{text}}' },
-                        { id: 'whatsapp', label: 'Über WhatsApp teilen', url: 'whatsapp://send?text={{url}}' }
+                        { id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{image_shareurl}}' },
+                        { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{image_shareurl}}&hashtags=Longboard' },
+                        { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{image_shareurl}}&media={{image_absurl}}&description={{text}}' },
+                        { id: 'whatsapp', label: 'Über WhatsApp teilen', url: 'whatsapp://send?text={{image_shareurl}}' }
                     ]
 
                 };
-
+                
                 // PhotoSwipe opened from URL
                 if (fromURL) {
                     if (options.galleryPIDs) {
@@ -751,16 +757,22 @@
 
             // loop through all gallery elements and bind events
             var galleryElements = document.querySelectorAll(gallerySelector);
+            var reversedElements = [];
 
             for (var i = 0, l = galleryElements.length; i < l; i++) {
-                galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                galleryElements[i].setAttribute('data-pswp-uid', l - i);
                 galleryElements[i].onclick = onThumbnailsClick;
+
+                // Use the reverse order of gallery elements 
+                // Usually gallery Ids are assigned from top to bottom; this would break 
+                // links to older references if a new gallery is added
+                reversedElements[l-i - 1] = galleryElements[i];
             }
 
             // Parse URL and open gallery if it contains #&pid=3&gid=1
             var hashData = photoswipeParseHash();
             if (hashData.pid && hashData.gid) {
-                openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                openPhotoSwipe(hashData.pid, reversedElements[hashData.gid - 1], true, true);
             }
         };
 

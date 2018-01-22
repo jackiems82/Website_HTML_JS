@@ -126,9 +126,17 @@ var PhotoSwipeUI_Default =
 				if (typeof(pswp.currItem.src) == "undefined") {
 					 theSource = pswp.currItem.videosrc; 
 					 theSource = theSource.substr(0, theSource.lastIndexOf(".")) + ".jpg";
-					 } 
-					 else theSource =  pswp.currItem.src;
+				} 
+				else theSource =  pswp.currItem.src;
+
 				return (albumFolder + theSource)  || '';
+			},
+			getImageShareURLForShare: function( /* shareButtonData */ ) {
+				var theSource =  '';
+				if (typeof(pswp.currItem.src) != "undefined") {
+					theSource = pswp.currItem.shareSrc
+				}
+				return (albumFolder + theSource) || '';
 			},
 			getPageURLForShare: function( /* shareButtonData */ ) {
 				return window.location.href;
@@ -270,6 +278,7 @@ var PhotoSwipeUI_Default =
 				shareURL,
 				image_url,
 				image_absurl,
+				image_shareurl,
 				page_url,
 				share_text;
 
@@ -278,12 +287,14 @@ var PhotoSwipeUI_Default =
 
 				image_url = _options.getImageURLForShare(shareButtonData);
 				image_absurl = _options.getImageAbsURLForShare(shareButtonData);
+				image_shareurl = _options.getImageShareURLForShare(shareButtonData);
 				page_url = _options.getPageURLForShare(shareButtonData);
 				share_text = _options.getTextForShare(shareButtonData);
 
 				shareURL = shareButtonData.url.replace('{{url}}', encodeURIComponent(page_url) )
 									.replace('{{image_url}}', encodeURIComponent(image_url) )
 									.replace('{{image_absurl}}', encodeURIComponent(image_absurl) )
+									.replace('{{image_shareurl}}', encodeURIComponent(image_shareurl) )
 									.replace('{{raw_image_url}}', image_url )
 									.replace('{{text}}', encodeURIComponent(share_text) );
 	

@@ -392,12 +392,11 @@
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                     },
                     shareButtons: [
-                        { id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' },
-                        { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}&hashtags=Longboard' },
-                        { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_absurl}}&description={{text}}' },
-                        { id: 'whatsapp', label: 'Über WhatsApp teilen', url: 'whatsapp://send?text={{url}}' }
+                        { id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{share_url}}' },
+                        { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{share_url}}&hashtags=Longboard' },
+                        { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{share_url}}&media={{image_absurl}}&description={{text}}' },
+                        { id: 'whatsapp', label: 'Über WhatsApp teilen', url: 'whatsapp://send?text={{share_url}}' }
                     ]
-
                 };
 
                 // PhotoSwipe opened from URL
