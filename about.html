@@ -10,9 +10,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="http://3boards-staging.azurewebsites.net/images/stadthafen_size_805x1200.jpg">
 
-    <!-- <meta property="og:image" content="http://deinbrett.info/images/home_1200.jpg"> -->
+    <!-- <meta property="og:image" content="http://deinbrett.info/images/stadthafen_size_805x1200.jpg"> -->
     <meta property="og:image" content="http://3boards-staging.azurewebsites.net/images/stadthafen_size_805x1200.jpg">
-    <meta property="og:image" content="http://3boards-staging.azurewebsites.net/images/home_1200.jpg">
 
     <meta property="og:description" content="Hier findest du Infos zu unserer Longboardmanufaktur und wie du an dein eigenes Longboard kommst ★ DeinBrett - Deine Longboardschmiede in Rostock">
     <meta property="og:title" content="Longboards nach deinem Geschmack - DeinBRETT">
@@ -23,21 +22,6 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
-
-    <noscript>
-        <br>
-        <p>Vielen Dank für dein Interesse ans unseren Inhalten. Leider unterstützt dein Browser kein JavaScript oder es ist
-            deaktiviert. Jedoch kannst du gern über unsere
-            <a href='https://www.facebook.com/deinbrett/' data-analytics-category='link' data-analytics-action='navigate' data-analytics-label='Index-Facebooklink'>Facebookseite</a> mit uns in Kontakt treten.
-        </p>
-        <p>Wir freuen uns von dir zu hören.</p>
-        <br>
-        <p>Thank you for your interest in our content. Sadly your browser does not support JavaScript or it might be deactivated.
-            Nevertheless you can contact us via our
-            <a href='https://www.facebook.com/deinbrett/' data-analytics-category='link' data-analytics-action='navigate' data-analytics-label='Index-Facebooklink'>Facebook page.</a>
-        </p>
-        <p>We look forward to get in contact with you.</p>
-    </noscript>
 
 </head>
 
@@ -127,7 +111,8 @@
                     <div class="my-gallery center-block" itemscope itemtype="http://schema.org/ImageGallery" style="width: 230px;">
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                             <a href="images/stadthafen_size_805x1200.jpg" itemprop="contentUrl" data-size="805x1200">
-                                <img src="images/Stadthafen_201.jpg" itemprop="thumbnail" alt="Handstand auf einem Longboard am Rostocker Stadthafen" />
+                                <img src="images/Stadthafen_201.jpg" itemprop="thumbnail" alt="Handstand auf einem Longboard am Rostocker Stadthafen" 
+                                    share-src="galleries/info"/>
                             </a>
                             <figcaption itemprop="caption description">Handstand auf einem Longboard am Rostocker Stadthafen</figcaption>
                         </figure>
@@ -237,7 +222,7 @@
     <script src="js/photoswipe/photoswipe.min.js"></script>
 
     <!-- UI JS file -->
-    <script src="js/photoswipe/photoswipe-ui-default.js"></script>
+    <script src="js/photoswipe/photoswipe-ui-default.min.js"></script>
 
     <!-- Photoswipe image loading -->
     <script>
@@ -283,7 +268,8 @@
 
                     if (linkEl.children.length > 0) {
                         // <img> thumbnail element, retrieving thumbnail url
-                        item.msrc = linkEl.children[0].getAttribute('src');
+                        item.msrc = linkEl.children[0].getAttribute('src');                        
+                        item.shareSrc = linkEl.children[0].getAttribute('share-src');
                     }
 
                     item.el = figureEl; // save link to element for getThumbBoundsFn
@@ -392,10 +378,10 @@
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                     },
                     shareButtons: [
-                        { id: 'facebook', label: 'Auf Facebook teilen', url: 'https://www.facebook.com/sharer/sharer.php?u={{share_url}}' },
-                        { id: 'twitter', label: 'Auf Twitter twittern', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{share_url}}&hashtags=Longboard' },
-                        { id: 'pinterest', label: 'Auf Pinterest pinnen', url: 'http://www.pinterest.com/pin/create/button/?url={{share_url}}&media={{image_absurl}}&description={{text}}' },
-                        { id: 'whatsapp', label: 'Über WhatsApp teilen', url: 'whatsapp://send?text={{share_url}}' }
+                        { id: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/sharer/sharer.php?u={{image_shareurl}}' },
+                        { id: 'twitter', label: 'Twitter', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{image_shareurl}}&hashtags=Longboard' },
+                        { id: 'pinterest', label: 'Pinterest', url: 'http://www.pinterest.com/pin/create/button/?url={{image_shareurl}}&media={{image_absurl}}&description={{text}}' },
+                        { id: 'whatsapp', label: 'WhatsApp', url: 'whatsapp://send?text={{image_shareurl}}' }
                     ]
                 };
 
