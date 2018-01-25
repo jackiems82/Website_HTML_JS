@@ -88,8 +88,9 @@ body {
    padding-bottom:100px;   /* Height of the footer */
    margin-top:30px;
 }
-/* This is needed to move the links in front of the footer an make them clickable. */
-#body a {
+/* This is needed to move the links/video in front of the footer an make them clickable. */
+#body a,
+.video {
     position: relative;
     z-index: 1;
 }
