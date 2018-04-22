@@ -235,6 +235,10 @@ body {
     -webkit-backface-visibility: hidden;
     /* Fix for transition flickering */
 }
+.img-gallery .gallery-video{
+    height: 113px;
+    width: 200px;
+}
 
 figcaption {
     display:none;
