@@ -659,7 +659,11 @@
 
                     linkEl = figureEl.children[0]; // <a> element
 
-                    size = linkEl.getAttribute('data-size').split('x');
+                    var dimensions = linkEl.getAttribute('data-size');
+                    if (dimensions)
+                        size = dimensions.split('x');
+                    else
+                        continue;
 
                     // create slide object
                     item = {
