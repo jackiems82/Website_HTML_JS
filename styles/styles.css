@@ -203,10 +203,10 @@ body {
 
 
 /***PROJECTS page***/
-.projects {
+.project {
     margin-bottom: 30px;
 }
-.projects h3 {
+.project h3 {
     margin-top: 25px;
 }
 .img-gallery {
@@ -327,7 +327,7 @@ figcaption {
     .main-navigation ul {
         margin-top:20px;
     }
-    .projects {
+    .project {
         margin-bottom: 60px;
     }
 }
